@@ -7,11 +7,11 @@
     tools:context=".MainActivity">
 
     <ImageView
+        android:id="@+id/imgBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_matchmaker"
-        ></ImageView>
+        android:src="@drawable/background_matchmaker"></ImageView>
     <TextView
         android:id="@+id/tvInstructions"
         android:layout_width="0dp"
@@ -82,4 +82,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCalculateMatch" />
+
+    <ImageView
+        android:id="@+id/imgAnim"
+        android:layout_width="131dp"
+        android:layout_height="163dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult"
+        app:srcCompat="@drawable/heart_anim" />
+
 </android.support.constraint.ConstraintLayout>
