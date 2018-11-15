@@ -8,10 +8,16 @@
 
     <ImageView
         android:id="@+id/imgBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="386dp"
+        android:layout_height="566dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_matchmaker"></ImageView>
+        android:src="@drawable/background_test"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
     <TextView
         android:id="@+id/tvInstructions"
         android:layout_width="0dp"
@@ -78,22 +84,45 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="serif"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCalculateMatch" />
 
-    <ImageView
-        android:id="@+id/imgAnim"
-        android:layout_width="131dp"
-        android:layout_height="163dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResult"
-        app:srcCompat="@drawable/heart_anim" />
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
 
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResult">
+
+        <WebView
+            android:id="@+id/animateGif"
+            android:layout_width="330dp"
+            android:layout_height="182dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:maxHeight="100dp"
+            android:maxWidth="100dp"
+            android:visibility="invisible">
+
+        </WebView>
+        <!--app:layout_constraintEnd_toEndOf="@+id/imgBackground"-->
+        <!--app:layout_constraintStart_toStartOf="@+id/imgBackground"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/tvResult" />-->
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

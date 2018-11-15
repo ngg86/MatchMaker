@@ -2,6 +2,7 @@ package com.ngg86.matchmaker;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.health.TimerStat;
 import android.provider.Settings;
@@ -13,11 +14,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import java.util.List;
 import java.util.Random;
@@ -79,16 +83,20 @@ public class MainActivity extends AppCompatActivity
 
         //Start animating gif
         StartAnimation();
+        //ImageView anim = findViewById(R.id.imgAnim);
+        //anim.setVisibility(View.VISIBLE);
 
         //Show loading gif for random amount of time between 2.5 - 10 sec
         new Handler().postDelayed(new Runnable()
         {
+
             @Override
             public void run()
             {
                 if (calcType == 0)
                 {
                     BerekeningA(FirstName, SecondName, Results);
+
                 }
                 else
                 {
@@ -96,14 +104,19 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         }, randomInt);
+//        anim = findViewById(R.id.imgAnim);
+//        anim.setVisibility(View.INVISIBLE);
     }
 
     private void StartAnimation()
     {
-        ImageView ivHeart = findViewById(R.id.imgAnim);
-        Animation animHeart = AnimationUtils.loadAnimation(this, R.anim.heart_anim);
-        ivHeart.startAnimation(animHeart);
-        ivHeart.setVisibility(View.VISIBLE);
+        WebView animation = findViewById(R.id.animateGif);
+        animation.loadUrl("file:///android_res/drawable/heart_anim_small.gif");
+        //animation.loadDataWithBaseURL("file:///android_res/drawable/heart_anim_small.gif","<html><body  align='center'></body></html>",null, "text/html", null);
+        animation.setVisibility(View.VISIBLE);
+        animation.setBackgroundColor(Color.TRANSPARENT);
+       // animation.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+
     }
 
     public void BerekeningA(String NameOne, String NameTwo, TextView Results)
@@ -117,7 +130,8 @@ public class MainActivity extends AppCompatActivity
 
         //convert Percentage to string and set it to TextView
         String Result = String.valueOf(Percentage) + "%";
-
+        WebView animation = findViewById(R.id.animateGif);
+        animation.setVisibility(View.INVISIBLE);
         Results.setText(Result);
 
 
@@ -160,7 +174,8 @@ public class MainActivity extends AppCompatActivity
         points += loveCounterOne + loveCounterTwo;
         String totalPoints = String.valueOf(points);
 
-
+        WebView animation = findViewById(R.id.animateGif);
+        animation.setVisibility(View.INVISIBLE);
         Results.setText("Total points: " + totalPoints);
     }
 
